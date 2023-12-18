@@ -3,7 +3,8 @@
     <img class="logo" src="/assets/logotest2.png" alt="logo spatwater" />
 
     <input class="menu-button" type="checkbox" id="menu-button" />
-    <label class="menu-icon" for="menu-button"><span class="bars"></span></label>
+    <label class="menu-icon" for="menu-button"><span class="bars"></span></label
+    >
 
     <ul class="menu">
       <li><a href="/#over">Over</a></li>
@@ -13,6 +14,11 @@
       <li><a href="/kennisbank">Kennisbank</a></li>
       <li><a href="/kaart">Kansenkaart</a></li>
       <li><a href="/#contact"><span>Contact</span></a></li>
+      <li>
+        <button class="contrast-toggle">
+          <span>Toggle contrast</span>
+        </button>
+      </li>
     </ul>
   </div>
 </nav>
