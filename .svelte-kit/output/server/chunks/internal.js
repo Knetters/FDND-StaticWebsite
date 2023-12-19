@@ -1,14 +1,5 @@
 import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./ssr.js";
-let base = "";
-let assets = base;
-const initial = { base, assets };
-function reset() {
-  base = initial.base;
-  assets = initial.assets;
-}
-function set_assets(path) {
-  assets = initial.assets = path;
-}
+import "./paths.js";
 let public_env = {};
 function set_private_env(environment) {
 }
@@ -106,7 +97,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="../assets/SPAT_Logo_zondertekst.png" />\n    <meta name="viewport" content="width=device-width" />\n    <meta name="description" content="Spatwater" />\n\n    <title>SPATwater</title>\n\n    ' + head + '\n\n    <!--=============== REMIXICONS ===============-->\n    <link\n      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"\n      rel="stylesheet"\n    />\n    <link\n      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"\n      rel="stylesheet"\n    />\n\n    <!--=============== GOOGLE ICONS ===============-->\n    <link\n      rel="stylesheet"\n      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"\n    />\n\n    <!--=============== SWIPER CSS ===============-->\n    <link rel="stylesheet" href="/assets/swiper-bundle.min.css" />\n\n    <!--=============== SWIPER JS ===============-->\n    <script src="/assets/swiper-bundle.min.js"><\/script>\n\n    <!--=============== LEAFLET JS ===============-->\n    <link\n      rel="stylesheet"\n      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"\n      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="\n      crossorigin=""\n    />\n    <script\n      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"\n      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="\n      crossorigin=""\n    ><\/script>\n  </head>\n\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + '</div>\n  </body>\n</html>\n\n<style>\n  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");\n\n  * {\n    box-sizing: border-box;\n    padding: 0;\n    margin: 0;\n    scroll-behavior: smooth;\n    font-family: "Open sans", sans-serif;\n  }\n\n  :root {\n    --spat: #7faec5;\n    --lg-bg: #fafafa;\n    --green: #4ecd5d;\n    --darkblue: #384b61;\n  }\n\n  @media screen and (prefers-contrast: more) {\n    :root {\n      --spat: #384b61;\n      --green: #384b61;\n    }\n  }\n\n  p {\n    margin-bottom: 1rem;\n    color: var(--darkblue);\n    font-size: 1rem;\n  }\n\n  html {\n    scroll-behavior: smooth;\n  }\n\n  body {\n    font-family: "Poppins", serif;\n  }\n\n  main {\n    overflow-x: hidden;\n    overflow-y: hidden;\n  }\n\n  .button {\n    display: inline-block;\n    background-color: var(--green);\n    color: white;\n    padding: 0.5rem 1rem;\n    border-radius: 5px;\n    font-weight: var(--font-semi-bold);\n    transition: 0.3s;\n    text-decoration: none;\n    z-index: 7;\n\n    &.is-high-contrast {\n      background-color: var(--darkblue);\n    }\n  }\n\n  .button:hover {\n    background-color: var(--darkblue);\n  }\n\n  .leaflet-control {\n    display: none !important;\n  }\n\n  @keyframes sparkle {\n    0% {\n      transform: translateY(0) scale(1);\n      opacity: 1;\n    }\n    100% {\n      transform: translateY(100vh) scale(1.5);\n      opacity: 0;\n    }\n  }\n\n  .sparkle {\n    position: absolute;\n    width: 1rem;\n    height: 1rem;\n    background: radial-gradient(circle, #fbf4c3e6 20%, transparent 80%);\n    animation: sparkle 10s ease-in-out infinite;\n    pointer-events: none;\n  }\n\n  .sparkle::after {\n    position: absolute;\n    width: 0.5rem;\n    height: 0.5rem;\n    background: radial-gradient(circle, #8ea2e3e6 20%, transparent 80%);\n    animation: sparkle 10s ease-in-out infinite;\n    pointer-events: none;\n  }\n</style>\n',
+    app: ({ head, body, assets, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="../assets/SPAT_Logo_zondertekst.png" />\n    <meta name="viewport" content="width=device-width" />\n    <meta name="description" content="Spatwater" />\n\n    <title>SPATwater</title>\n\n    ' + head + '\n\n    <!--=============== REMIXICONS ===============-->\n    <link\n      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"\n      rel="stylesheet"\n    />\n    <link\n      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"\n      rel="stylesheet"\n    />\n\n    <!--=============== GOOGLE ICONS ===============-->\n    <link\n      rel="stylesheet"\n      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"\n    />\n\n    <!--=============== SWIPER CSS ===============-->\n    <link rel="stylesheet" href="/assets/swiper-bundle.min.css" />\n\n    <!--=============== SWIPER JS ===============-->\n    <script src="/assets/swiper-bundle.min.js"><\/script>\n\n    <!--=============== LEAFLET JS ===============-->\n    <link\n      rel="stylesheet"\n      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"\n      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="\n      crossorigin=""\n    />\n    <script\n      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"\n      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="\n      crossorigin=""\n    ><\/script>\n  </head>\n\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + '</div>\n  </body>\n</html>\n\n<style>\n  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");\n\n  * {\n    box-sizing: border-box;\n    padding: 0;\n    margin: 0;\n    scroll-behavior: smooth;\n    font-family: "Open sans", sans-serif;\n  }\n\n  :root {\n    --spat: #7faec5;\n    --lg-bg: #fafafa;\n    --green: #4ecd5d;\n    --darkblue: #384b61;\n  }\n\n  @media screen and (prefers-contrast: more) {\n    :root {\n      --spat: #384b61;\n      --green: #384b61;\n    }\n  }\n\n  p {\n    margin-bottom: 1rem;\n    color: var(--darkblue);\n    font-size: 1rem;\n  }\n\n  html {\n    scroll-behavior: smooth;\n  }\n\n  body {\n    font-family: "Poppins", serif;\n  }\n\n  main {\n    overflow-x: hidden;\n    overflow-y: hidden;\n  }\n\n  .button {\n    display: inline-block;\n    background-color: var(--green);\n    color: white;\n    padding: 0.5rem 1rem;\n    border-radius: 5px;\n    font-weight: var(--font-semi-bold);\n    transition: 0.3s;\n    text-decoration: none;\n    z-index: 7;\n\n    &.is-high-contrast {\n      background-color: var(--darkblue);\n    }\n  }\n\n  .button:hover {\n    background-color: var(--darkblue);\n  }\n\n  .leaflet-control {\n    display: none !important;\n  }\n\n  @keyframes sparkle {\n    0% {\n      transform: translateY(0) scale(1);\n      opacity: 1;\n    }\n    100% {\n      transform: translateY(100vh) scale(1.5);\n      opacity: 0;\n    }\n  }\n\n  .sparkle {\n    position: absolute;\n    width: 1rem;\n    height: 1rem;\n    background: radial-gradient(circle, #fbf4c3e6 20%, transparent 80%);\n    animation: sparkle 10s ease-in-out infinite;\n    pointer-events: none;\n  }\n\n  .sparkle::after {\n    position: absolute;\n    width: 0.5rem;\n    height: 0.5rem;\n    background: radial-gradient(circle, #8ea2e3e6 20%, transparent 80%);\n    animation: sparkle 10s ease-in-out infinite;\n    pointer-events: none;\n  }\n</style>\n',
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -178,20 +169,16 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1sttcuv"
+  version_hash: "p2qgpl"
 };
 function get_hooks() {
   return {};
 }
 export {
-  assets as a,
-  base as b,
-  set_public_env as c,
-  set_assets as d,
-  set_building as e,
+  set_public_env as a,
+  set_building as b,
   get_hooks as g,
   options as o,
   public_env as p,
-  reset as r,
   set_private_env as s
 };

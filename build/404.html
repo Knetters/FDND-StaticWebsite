@@ -9,9 +9,10 @@
     <title>SPATwater</title>
 
     
-		<link rel="modulepreload" href="/_app/immutable/entry/start.a536c052.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/start.5eaec9c7.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/scheduler.2aecb5fb.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.32d4c768.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/paths.d86c6931.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.af0fb422.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/index.3723d49e.js">
 
     <!--=============== REMIXICONS ===============-->
@@ -54,16 +55,16 @@
     <div style="display: contents">
 			<script>
 				{
-					__sveltekit_1sttcuv = {
+					__sveltekit_p2qgpl = {
 						base: "",
-						env: {}
+						env: {"PUBLIC_HYGRAPH_URL":"http://the-url-to-the-public-API-endpoint.com"}
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.a536c052.js"),
-						import("/_app/immutable/entry/app.32d4c768.js")
+						import("/_app/immutable/entry/start.5eaec9c7.js"),
+						import("/_app/immutable/entry/app.af0fb422.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
