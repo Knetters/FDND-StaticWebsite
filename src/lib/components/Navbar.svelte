@@ -1,3 +1,7 @@
+<script>
+  import { base } from '$app/paths'
+</script>
+
 <nav>
   <div class="navbar-container">
     <img class="logo" src="/assets/logotest2.png" alt="logo spatwater" />
@@ -7,13 +11,13 @@
     >
 
     <ul class="menu">
-      <li><a href="/#over">Over</a></li>
-      <li><a href="/#expertise">Expertise</a></li>
-      <li><a href="/projecten">Projecten</a></li>
-      <li><a href="/#team">Team</a></li>
-      <li><a href="/kennisbank">Kennisbank</a></li>
-      <li><a href="/kaart">Kansenkaart</a></li>
-      <li><a href="/#contact"><span>Contact</span></a></li>
+      <li><a href="{base}/#over">Over</a></li>
+      <li><a href="{base}/#expertise">Expertise</a></li>
+      <li><a href="{base}/projecten">Projecten</a></li>
+      <li><a href="{base}/#team">Team</a></li>
+      <li><a href="{base}/kennisbank">Kennisbank</a></li>
+      <li><a href="{base}/kaart">Kansenkaart</a></li>
+      <li><a href="{base}/#contact"><span>Contact</span></a></li>
       <li>
         <button class="contrast-toggle">
           <span>Toggle contrast</span>
